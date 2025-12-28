@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Initialize TaskHandler with path to CSV file
-        String csvFilePath = "tasks.csv"; // You can adjust the path
+        String csvFilePath = "src\\main\\resources\\tasks.csv";
         TaskHandler taskHandler = new TaskHandler(csvFilePath);
 
         // Start the UI

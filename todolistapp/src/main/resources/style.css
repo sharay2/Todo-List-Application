@@ -16,6 +16,7 @@
     -fx-background-color: #e0e0e0;
     -fx-font-size: 14px;
     -fx-text-fill: black;
+    -fx-font-weight: bold;
     -fx-padding: 6px 12px;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
@@ -26,6 +27,7 @@
 .category-button:selected {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 
 /* Task row container */
@@ -50,7 +52,7 @@
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-font-size: 14px;
+    -fx-font-size: 12px;
     -fx-background-radius: 50%;
     -fx-min-width: 30px;
     -fx-min-height: 30px;
@@ -66,4 +68,33 @@
     -fx-font-size: 16px;
     -fx-padding: 10px 20px;
     -fx-background-radius: 20px;
+}
+
+/* Task category colors */
+.category-work {
+    -fx-background-color: #FFCDD2; /* light red */
+}
+
+.category-personal {
+    -fx-background-color: #C8E6C9; /* light green */
+}
+
+.category-school {
+    -fx-background-color: #BBDEFB; /* light blue */
+}
+
+.category-errand {
+    -fx-background-color: #FFF9C4; /* light yellow */
+}
+
+.category-health {
+    -fx-background-color: #D1C4E9; /* light purple */
+}
+
+.category-other {
+    -fx-background-color: #FFE0B2; /* light orange */
+}
+
+.category-uncategorized {
+    -fx-background-color: white;
 }

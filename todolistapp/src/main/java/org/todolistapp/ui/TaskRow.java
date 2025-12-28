@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import org.todolistapp.models.Task;
+import org.todolistapp.models.TaskCategory;
 
 public class TaskRow extends HBox {
 
@@ -25,6 +26,11 @@ public class TaskRow extends HBox {
         setAlignment(Pos.CENTER_LEFT);
         getStyleClass().add("task-row");  // CSS styling
 
+        // --- Add category-based styling ---
+        if (task.getCategory() != null && task.getCategory() != TaskCategory.UNCATEGORIZED) {
+            getStyleClass().add("category-" + task.getCategory().name().toLowerCase());
+        }
+
         // Task Button
         taskButton = new Button(task.getDescription());
         taskButton.getStyleClass().add("task-button");
@@ -35,14 +41,10 @@ public class TaskRow extends HBox {
         // Done Button
         doneButton = new Button("✔");
         doneButton.getStyleClass().add("done-button");
-        doneButton.setTooltip(new Tooltip("Mark as complete"));
+        doneButton.setTooltip(new Tooltip("✓"));
         doneButton.setOnAction(e -> listener.onTaskCompleted(task));
 
         // Add components
         getChildren().addAll(taskButton, doneButton);
-    }
-
-    public Task getTask() {
-        return task;
     }
 }

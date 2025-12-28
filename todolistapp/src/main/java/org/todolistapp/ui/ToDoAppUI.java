@@ -37,7 +37,7 @@ public class ToDoAppUI {
         root.setTop(titleLabel);
         BorderPane.setAlignment(titleLabel, Pos.CENTER);
 
-        // Category bar
+        // --- Category bar ---
         categoryBar = new HBox(10);
         categoryBar.setPadding(new Insets(10));
         categoryBar.setAlignment(Pos.CENTER_LEFT);
@@ -45,16 +45,19 @@ public class ToDoAppUI {
         categoryScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         categoryScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         categoryScroll.setFitToHeight(true);
-        root.setCenter(categoryScroll);
 
-        // Task list
+        // --- Task list ---
         taskListContainer = new VBox(5);
         taskListContainer.setPadding(new Insets(10));
         ScrollPane taskScroll = new ScrollPane(taskListContainer);
         taskScroll.setFitToWidth(true);
-        root.setCenter(taskScroll);
 
-        // Add Task button
+        // --- Center container combining category bar and task list ---
+        VBox centerContainer = new VBox(10);
+        centerContainer.getChildren().addAll(categoryScroll, taskScroll);
+        root.setCenter(centerContainer);
+
+        // --- Add Task button ---
         Button addTaskButton = new Button("Add Task");
         addTaskButton.getStyleClass().add("add-task-button");
         addTaskButton.setOnAction(e -> openAddTaskPopup(primaryStage));
@@ -92,6 +95,12 @@ public class ToDoAppUI {
         for (TaskCategory cat : TaskCategory.values()) {
             Button catButton = new Button(cat.name());
             catButton.getStyleClass().add("category-button");
+
+            // Apply category-specific style except UNCATEGORIZED
+            if (cat != TaskCategory.UNCATEGORIZED) {
+                catButton.getStyleClass().add("category-" + cat.name().toLowerCase());
+            }
+
             catButton.setOnAction(e -> {
                 selectedCategory = cat;
                 refreshTaskList();
