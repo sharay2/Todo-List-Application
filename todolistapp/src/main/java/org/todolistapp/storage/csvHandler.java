@@ -1,5 +1,5 @@
 package org.todolistapp.storage;
-import org.todolistapp.model.Task;
+import org.todolistapp.models.Task;
 
 import java.io.*;
 import java.util.ArrayList;

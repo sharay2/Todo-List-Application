@@ -1,4 +1,5 @@
-package org.todolistapp.model;
+package org.todolistapp.models;
+
 /**
  * Task.java
 
@@ -22,43 +23,33 @@ public class Task {
         description = what the task actually is
      */
     private final long id;
-    private String category;
+    private TaskCategory category;
     private String description;
 
-    public Task(long id, String category, String description) {
+    public Task(long id, TaskCategory category, String description) {
         this.id = id;
-        this.category = category;
+        this.category = (category != null) ? category : TaskCategory.UNCATEGORIZED;
         this.description = description;
     }
 
     // GET METHODS
     // ID get method
-    public long getId() {
-        return id;
-    }
+    public long getId() { return id; }
     // Category get method
-    public String getCategory() {
-        return category;
-    }
+    public TaskCategory getCategory() { return category; }
     // Description get method
-    public String getDescription() {
-        return description;
-    }
+    public String getDescription() { return description; }
 
     // SET METHODS
     // Sets this task to a specific category
-    public void setCategory(String category) {
-        this.category = category;
-    }
+    public void setCategory(TaskCategory category) { this.category = (category != null) ? category : TaskCategory.UNCATEGORIZED; }
     // Sets this task's description
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setDescription(String description) { this.description = description; }
 
     // Convert task to CSV string for reading/writing to storage
     @Override
     public String toString() {
-        return id + "," + category + "," + description;
+        return id + "," + category.name() + "," + description;
     }
 
     // Factory method: create a Task object from a CSV line
@@ -66,7 +57,7 @@ public class Task {
         String[] fields = csv.split(",",3);
 
         long id = Long.parseLong(fields[0]);
-        String category = fields[1];
+        TaskCategory category = TaskCategory.valueOf(fields[1]);
         String description = fields[2];
 
         return new Task(id, category, description);
