@@ -8,15 +8,15 @@ A simple to-do list app that stores tasks in a file and supports adding, removin
 - Tasks are sorted by most recently added to last
 
 ## **Main Files**
-# `Main.java`
+### `Main.java`
 The entry point of the application.
 Initializes the TaskHandler and launches the JavaFX UI (ToDoAppUI).
-# `Task.java`
+### `Task.java`
 Model class representing a single task.
 Stores a unique long ID, a TaskCategory value, and a string description.
-# `TaskCategory.java`
+### `TaskCategory.java`
 Enum defining the task categories: `WORK`, `PERSONAL`, `SCHOOL`, `ERRAND`, `HEALTH`, `OTHER`, `UNCATEGORIZED`
-# `TaskHandler.java`
+### `TaskHandler.java`
 Core logic of the application, which handles:
 - Adding tasks
 - Removing tasks
@@ -24,33 +24,33 @@ Core logic of the application, which handles:
 - Flitering by category
 - Sorting tasks (from newest to oldest)
 - Saving/loading to the CSV file
-# `CsvHandler.java`
+### `CsvHandler.java`
 Responsible for CSV file operations, which loads tasks at startup and saves updates when the task list changes.
-# `ToDoAppUI.java`
+### `ToDoAppUI.java`
 JavaFX-based user interface, which includess:
 - Task list display
 - Category filter bar
 - Add/Edit pop-up windows
 - Buttons for user interactions
-# `TaskRow.java`
+### `TaskRow.java`
 Custom UI component representing a single task in the list, which includes:
 - A clickable description label for editing a task
 - A completion button to remove completed tasks
 
 ## **Test Files**
-# `TaskTest.java`
+### `TaskTest.java`
 Tests the `Task` model, specifically:
 - ID handling
 - Category storage
 - Description updates
-# `TaskHandlerTest.java`
+### `TaskHandlerTest.java`
 Validates task management behavior, specifically:
 - Adding tasks
 - Updating tasks
 - Deleting tasks
 - Filtering by category
 - Sorting logic
-# `CsvHandlerTest.java`
+### `CsvHandlerTest.java`
 Tests CSV storage logic: specifically:
 - Saving tasks to file
 - Loading tasks from file
