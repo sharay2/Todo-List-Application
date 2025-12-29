@@ -24,11 +24,11 @@ import java.util.List;
  *     handled by the taskHandler class.
  */
 
-public class csvHandler {
+public class CsvHandler {
     private final String filePath;
 
     // Constructor
-    public csvHandler(String filePath) {
+    public CsvHandler(String filePath) {
         this.filePath = filePath;
         checkFile();
     }

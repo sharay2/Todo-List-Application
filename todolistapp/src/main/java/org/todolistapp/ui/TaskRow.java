@@ -6,6 +6,21 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import org.todolistapp.models.Task;
 import org.todolistapp.models.TaskCategory;
+/**
+ * TaskRow.java
+
+ * This class represents a single row in the task list UI.
+ * Each row displays a task's description and a button to mark it as completed.
+
+ * Responsibilities:
+ *  - Render an individual task with its corresponding category styling.
+ *  - Provide a clickable area to edit/view the task.
+ *  - Provide a "done" button that notifies the parent UI when the task is completed.
+
+ * This class communicates with the main UI through the TaskRowListener interface,
+ * allowing the parent component to handle edits and deletions.
+ */
+
 
 public class TaskRow extends HBox {
 

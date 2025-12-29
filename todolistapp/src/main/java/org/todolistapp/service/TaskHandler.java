@@ -3,7 +3,7 @@ import java.util.*;
 
 import org.todolistapp.models.Task;
 import org.todolistapp.models.TaskCategory;
-import org.todolistapp.storage.csvHandler;
+import org.todolistapp.storage.CsvHandler;
 /**
  * taskHandler.java
 
@@ -25,13 +25,13 @@ import org.todolistapp.storage.csvHandler;
  */
 
 public class TaskHandler {
-    private final csvHandler storage;
+    private final CsvHandler storage;
     private final List<Task> tasks;
     private long nextId = 1;
 
     // Constructor which loads tasks from CSV file
     public TaskHandler(String filePath) {
-        this.storage = new csvHandler(filePath);
+        this.storage = new CsvHandler(filePath);
         this.tasks = storage.loadTasks();
         initializeIDCounter();
     }

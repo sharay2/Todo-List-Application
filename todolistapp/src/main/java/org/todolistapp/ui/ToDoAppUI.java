@@ -10,8 +10,28 @@ import javafx.stage.Stage;
 import org.todolistapp.models.Task;
 import org.todolistapp.models.TaskCategory;
 import org.todolistapp.service.TaskHandler;
-
 import java.util.List;
+/**
+ * ToDoAppUI.java
+
+ * This class sets up and manages the main user interface for the To-Do List application.
+ * It displays the list of tasks, category filters, and supports adding and editing tasks.
+
+ * Features:
+ *  - Top-level layout and scene configuration for JavaFX.
+ *  - A scrollable category bar that filters tasks by category.
+ *  - A scrollable list of TaskRow components representing each task.
+ *  - Pop-up windows for adding and editing tasks.
+
+ * Responsibilities:
+ *  - Initialize UI components and apply CSS styling.
+ *  - Load and refresh tasks from the TaskHandler service.
+ *  - Handle interactions such as adding, editing, completing, or filtering tasks.
+
+ * This class serves as the main visual layer and interacts with the underlying
+ * task management logic through TaskHandler.
+ */
+
 
 public class ToDoAppUI {
 
@@ -37,7 +57,7 @@ public class ToDoAppUI {
         root.setTop(titleLabel);
         BorderPane.setAlignment(titleLabel, Pos.CENTER);
 
-        // --- Category bar ---
+        // Category bar
         categoryBar = new HBox(10);
         categoryBar.setPadding(new Insets(10));
         categoryBar.setAlignment(Pos.CENTER_LEFT);
@@ -46,18 +66,18 @@ public class ToDoAppUI {
         categoryScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         categoryScroll.setFitToHeight(true);
 
-        // --- Task list ---
+        // Task list
         taskListContainer = new VBox(5);
         taskListContainer.setPadding(new Insets(10));
         ScrollPane taskScroll = new ScrollPane(taskListContainer);
         taskScroll.setFitToWidth(true);
 
-        // --- Center container combining category bar and task list ---
+        // Center container combining category bar and task list
         VBox centerContainer = new VBox(10);
         centerContainer.getChildren().addAll(categoryScroll, taskScroll);
         root.setCenter(centerContainer);
 
-        // --- Add Task button ---
+        // Add Task button
         Button addTaskButton = new Button("Add Task");
         addTaskButton.getStyleClass().add("add-task-button");
         addTaskButton.setOnAction(e -> openAddTaskPopup(primaryStage));
